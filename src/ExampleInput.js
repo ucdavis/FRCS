@@ -1,0 +1,32 @@
+const ExampleInput = {
+  System: "Cable Manual WT",
+  PartialCut: true,
+  DeliverDist: 400,
+  Slope: 30,
+  Elevation: 5000,
+  CalcLoad: true,
+  CalcMoveIn: true,
+  Area: 1,
+  MoveInDist: 2,
+  CalcResidues: true,
+  UserSpecWDCT: 60,
+  UserSpecWDSLT: 58.6235,
+  UserSpecWDLLT: 62.1225,
+  UserSpecRFCT: 0,
+  UserSpecRFSLT: 0.25,
+  UserSpecRFLLT: 0.38,
+  UserSpecHFCT: 0.2,
+  UserSpecHFSLT: 0,
+  UserSpecHFLLT: 0,
+  RemovalsCT: 20,
+  TreeVolCT: 50,
+  RemovalsSLT: 50,
+  TreeVolSLT: 70,
+  RemovalsLLT: 5,
+  TreeVolLLT: 100,
+  DieselFuelPrice: 3.356,
+  MoistureContent: 50,
+  ChipAll: false
+}
+
+export default ExampleInput;

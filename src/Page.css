@@ -1,0 +1,197 @@
+
+.title {
+    font-weight: 300;
+}
+
+.box {
+  height: fit-content;
+  /* background-color: #cfe8fc; */
+  border: solid 1px rgb(250, 249, 249);
+  border-radius: 3px;
+  box-shadow: 0 0 10px;
+  margin-left: 0;
+  margin-right: 0;
+  /* font-weight: bold; */
+}
+.configuration {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+}
+.configurationLeftmiddle {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+}
+.configuration-left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 5px 10px;
+}
+.label {
+  font-size: 17px;
+}
+.configuration-middle {
+  width: 40%;
+  margin: 5px 5px;
+}
+
+.checkList {
+  width: 50%;
+  height: 40%;
+  /* height: 10vh; */
+}
+.checkLabel {
+  font-size: 18px;
+}
+
+.firstLineCheckList {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.secondLineCheckList {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.large {
+  margin-top: 25px;
+
+}
+.small{
+  margin-top: 12px;
+}
+.hide {
+  display: flex;
+  flex-direction: row;
+}
+
+.inputTable {
+  height: 22%;
+}
+.tree-charac{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+@media only screen and (max-width: 576px){
+  .title {
+    font-size: 1.5rem;
+  }
+  .configuration {
+    height: fit-content;
+    flex-direction : column;
+    margin-left: 7%;
+  }
+  .configurationLeftmiddle {
+    width: 100%;
+    display: flex;
+    flex-direction : column;
+  }
+  .configuration-left {
+    width: 80%
+  }
+  .configuration-middle {
+    width: 80%;
+    
+  }
+  .checkList {
+    width: 100%;
+    font-size: small;
+    text-align: left;
+  }
+  .hide {
+    width: 80%;
+    flex-direction: column;
+  }
+  .small {
+    margin-top: 1px;
+  }
+  .large {
+    margin-top: 1px;
+  }
+}
+
+@media screen and (min-width: 577px) and ( max-width: 977px){
+  .configuration {
+    height: fit-content;
+    flex-direction : column;
+    margin-left: 1%;
+  }
+  .configurationLeftmiddle {
+    width: 100%;
+    display: flex;
+    flex-direction : row;
+  }
+  .configuration-left {
+    width: 45%;
+  }
+  .configuration-middle {
+    width: 45%;
+  }
+  .checkList {
+    width: 100%;
+  }
+  .firstLineCheckList {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .secondLineCheckList {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  .hide {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (min-width: 978px) and (max-width: 1100px){
+  .configuration {
+    height: fit-content;
+    flex-direction : row;
+    margin-left: 1%;
+  }
+  .configurationLeftmiddle {
+    width: 60%;
+    display: flex;
+    flex-direction : row;
+  }
+  .configuration-left {
+    width: 50%;
+  }
+  .configuration-middle {
+    width: 50%;
+  }
+  .checkList {
+    width: 40%;
+  }
+  .secondLineCheckList{
+    text-align: left;
+  }
+  .large {
+    margin-top: 25px;
+  }
+  .small{
+    margin-top: 0;
+  }
+  .hide {
+    width: 80%;
+    flex-direction: column;
+  }
+}
+
+
+
+
