@@ -38,13 +38,20 @@ function Page() {
   const handleArea = (e) => {setState({Area: parseFloat(e.target.value)})}
   const handleMoveInDist = (e) => {setState({MoveInDist: parseFloat(e.target.value)})}
   const handleCalcLoad = () => { setState({CalcLoad: !state.CalcLoad}) }
-  const handleCalcMoveIn = () => { setState({CalcMoveIn: !state.CalcMoveIn}) }
+  const handleCalcMoveIn = () => { 
+    setState({CalcMoveIn: !state.CalcMoveIn});
+    //if unchecked Include move-in cost box, reset area and one-way move-in dist to 0
+    if(state.CalcMoveIn === false) {
+      setState({MoveInDist: 0});
+      setState({Area: 0});
+    }
+   }
   const handleCalcResidues = () => { setState({CalcResidues: !state.CalcResidues})}
   const handleChipAll = () => { setState({ChipAll: !state.ChipAll}) }
 
-  // useEffect(() => {
-  //   console.log(state);
-  // },[state]);
+  useEffect(() => {
+    console.log(state);
+  },[state]);
 
   return (
     <Container style={{width: '90vw', paddingLeft: '0px', paddingRight: '0px'}}>
