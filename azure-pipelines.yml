@@ -1,0 +1,21 @@
+trigger:
+- master
+
+# no PR triggers
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+    
+steps:
+  - checkout: self
+    submodules: true
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '14.x'
+  - task: AzureStaticWebApp@0
+    inputs:
+      app_location: '/'
+      output_location: 'build'
+    env:
+      azure_static_web_apps_api_token: $(deployment_token)
