@@ -30,13 +30,13 @@ function Page() {
     if(String(e.target.value) === 'Partial Cut'){setState({PartialCut: true})} 
     else{setState({PartialCut: false})}
   }
-  const handleDeliverDist = (e) => {setState({DeliverDist: parseFloat(e.target.value)})}
-  const handleSlope = (e) => {setState({Slope: parseFloat(e.target.value)})}
-  const handleMoistureContent = (e) => {setState({MoistureContent: parseFloat(e.target.value)})}
-  const handleDieselFuelPrice = (e) => {setState({DieselFuelPrice: parseFloat(e.target.value)})}
-  const handleElevation = (e) => {setState({Elevation: parseFloat(e.target.value)})}
-  const handleArea = (e) => {setState({Area: parseFloat(e.target.value)})}
-  const handleMoveInDist = (e) => {setState({MoveInDist: parseFloat(e.target.value)})}
+  const handleDeliverDist = (e) => {setState({DeliverDist: parseFloat(e.target.value) || 0})}
+  const handleSlope = (e) => {setState({Slope: parseFloat(e.target.value) || 0})}
+  const handleMoistureContent = (e) => {setState({MoistureContent: parseFloat(e.target.value) || 0})}
+  const handleDieselFuelPrice = (e) => {setState({DieselFuelPrice: parseFloat(e.target.value) || 0})}
+  const handleElevation = (e) => {setState({Elevation: parseFloat(e.target.value) || 0})}
+  const handleArea = (e) => {setState({Area: parseFloat(e.target.value) || 0})}
+  const handleMoveInDist = (e) => {setState({MoveInDist: parseFloat(e.target.value) || 0})}
   const handleCalcLoad = () => { setState({CalcLoad: !state.CalcLoad}) }
   const handleCalcMoveIn = () => { 
     setState({CalcMoveIn: !state.CalcMoveIn});
@@ -98,7 +98,8 @@ function Page() {
                 label={<Box component="div" className='label'>Yard/Skid/Forward Slope Dist (ft)</Box>}
                 InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
                 onChange={(e)=> handleDeliverDist(e)}
-                value={state.DeliverDist}
+                value={state.DeliverDist.toString()}
+                type='number'
                 // defaultValue='400'
               />
             </FormControl>
@@ -109,7 +110,8 @@ function Page() {
                 label={<Box component="div" className='label'>Moisture Content (%)</Box>}
                 InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
                 onChange={(e) => {handleMoistureContent(e)}}
-                value={state.MoistureContent}
+                value={state.MoistureContent.toString()}
+                type='number'
                 // defaultValue='50'
               />
             </FormControl>
@@ -135,7 +137,8 @@ function Page() {
                 label={<Box component="div" className='label'> Slope (%)</Box>}
                 InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
                 onChange={(e) => handleSlope(e)}
-                value={state.Slope}
+                value={state.Slope.toString()}
+                type='number'
               />
             </FormControl>
             <FormControl sx={{ m: 1 }} fullWidth>
@@ -144,7 +147,8 @@ function Page() {
                 label={<Box component="div" className='label'> Elevation (ft)</Box>}
                 InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
                 onChange = {(e) => handleElevation(e)}
-                value={state.Elevation}
+                value={state.Elevation.toString()}
+                type='number'
               />
             </FormControl>
             <FormControl sx={{ m: 1 }} fullWidth>
@@ -153,7 +157,8 @@ function Page() {
                 label={<Box component="div" className='label'> Diesel Fuel Price ($/gal)</Box>}
                 InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
                 onChange={(e)=>{handleDieselFuelPrice(e)}}
-                value={state.DieselFuelPrice}
+                value={state.DieselFuelPrice.toString()}
+                type='number'
               />
             </FormControl>
           </div>
@@ -192,12 +197,13 @@ function Page() {
                     <FilledInput
                       label='area'
                       id='area'
-                      value={state.Area}
+                      value={state.Area.toString()}
                       endAdornment={
                         <InputAdornment position='end' style={{fontSize: '15px', fontWeight: 'bold'}}><p>arces</p></InputAdornment>
                       }
                       inputProps={{style: { textAlign: "center", fontSize: '16px' }}}
                       size='small'
+                      type='number'
                       onChange={(e) => {handleArea(e)}}
                     />
                   </FormControl>
@@ -208,12 +214,13 @@ function Page() {
                     <FilledInput
                       label='distance'
                       id='distance'
-                      value={state.MoveInDist}
+                      value={state.MoveInDist.toString()}
                       endAdornment={
                         <InputAdornment position='end' style={{fontSize: '15px', fontWeight: 'bold'}}> <p>miles</p></InputAdornment>
                       }
                       inputProps={{style: { textAlign: "center", fontSize: '16px' }}}
                       size='small'
+                      type='number'
                       onChange={(e) => {handleMoveInDist(e)}}
                     />
                   </FormControl>
