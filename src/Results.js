@@ -11,9 +11,7 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import { runFrcs } from '@ucdavis/frcs';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-// import initialInput from './initialInput'
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -99,20 +97,20 @@ function Results({input, setInput, setFirstTimeOpen}) {
         const Total = output.Total;
         const Residue = output.Residue;
         setState({
-            WeightPerAcreTotal : Total.WeightPerAcre.toFixed(3),
-            WeightPerAcreResidue : Residue.WeightPerAcre.toFixed(3),
-            CostPerAcreTotal: Total.CostPerAcre.toFixed(3),
-            CostPerAcreResidue: Residue.CostPerAcre.toFixed(3),
-            CostPerBoleCCFTotal: Total.CostPerBoleCCF.toFixed(3),
-            CostPerBoleCCFResidue: Residue.CostPerBoleCCF.toFixed(3),
-            CostPerGTTotal: Total.CostPerGT.toFixed(3),
-            CostPerGTResidue: Residue.CostPerGT.toFixed(3),
-            DieselPerAcreTotal: Total.DieselPerAcre.toFixed(3),
-            DieselPerAcreResidue: Residue.DieselPerAcre.toFixed(3),
-            GasolinePerAcreTotal: Total.GasolinePerAcre.toFixed(3),
-            GasolinePerAcreResidue: Residue.GasolinePerAcre.toFixed(3),
-            JetFuelPerAcreTotal: Total.JetFuelPerAcre.toFixed(3),
-            JetFuelPerAcreResidue: Residue.JetFuelPerAcre.toFixed(3)
+            WeightPerAcreTotal : Total.WeightPerAcre.toFixed(2),
+            WeightPerAcreResidue : Residue.WeightPerAcre.toFixed(2),
+            CostPerAcreTotal: Total.CostPerAcre.toFixed(2),
+            CostPerAcreResidue: Residue.CostPerAcre.toFixed(2),
+            CostPerBoleCCFTotal: Total.CostPerBoleCCF.toFixed(2),
+            CostPerBoleCCFResidue: Residue.CostPerBoleCCF.toFixed(2),
+            CostPerGTTotal: Total.CostPerGT.toFixed(2),
+            CostPerGTResidue: Residue.CostPerGT.toFixed(2),
+            DieselPerAcreTotal: Total.DieselPerAcre.toFixed(2),
+            DieselPerAcreResidue: Residue.DieselPerAcre.toFixed(2),
+            GasolinePerAcreTotal: Total.GasolinePerAcre.toFixed(2),
+            GasolinePerAcreResidue: Residue.GasolinePerAcre.toFixed(2),
+            JetFuelPerAcreTotal: Total.JetFuelPerAcre.toFixed(2),
+            JetFuelPerAcreResidue: Residue.JetFuelPerAcre.toFixed(2)
         })
       }
     }

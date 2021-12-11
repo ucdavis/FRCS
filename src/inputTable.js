@@ -43,37 +43,37 @@ function InputTable({state, setState}) {
   //ct chip-tree slt - small-log-tree llt-large-log-tree WD-wood-density RF-residue fraction HF - hardwood-fraction
   // RemovalsCT
   const handleRemovalsCT = (e, {row}) => {
-    if(row === 'Chip Trees'){setState({RemovalsCT: parseFloat(e.target.value)})}
-    else if (row === 'Small Log Trees') {setState({RemovalsSLT: parseFloat(e.target.value)})}
-    else {setState({RemovalsLLT: parseFloat(e.target.value)})}
+    if(row === 'Chip Trees'){setState({RemovalsCT: parseFloat(e.target.value) || 0 })}
+    else if (row === 'Small Log Trees') {setState({RemovalsSLT: parseFloat(e.target.value) || 0})}
+    else {setState({RemovalsLLT: parseFloat(e.target.value) || 0})}
   }
 
   // TreeVolCT
   const handleTreeVolCT = (e, {row}) => {
-    if(row === 'Chip Trees'){setState({TreeVolCT: parseFloat(e.target.value)})}
-    else if (row === 'Small Log Trees') {setState({TreeVolSLT: parseFloat(e.target.value)})}
-    else {setState({TreeVolLLT: parseFloat(e.target.value)})}
+    if(row === 'Chip Trees'){setState({TreeVolCT: parseFloat(e.target.value) || 0})}
+    else if (row === 'Small Log Trees') {setState({TreeVolSLT: parseFloat(e.target.value) || 0})}
+    else {setState({TreeVolLLT: parseFloat(e.target.value) || 0})}
   }
 
   //handleWD
   const handleWD = (e, {row}) => {
-    if(row === 'Chip Trees'){setState({UserSpecWDCT: parseFloat(e.target.value)})}
-    else if (row === 'Small Log Trees') {setState({UserSpecWDSLT: parseFloat(e.target.value)})}
-    else {setState({UserSpecWDLLT: parseFloat(e.target.value)})}
+    if(row === 'Chip Trees'){setState({UserSpecWDCT: parseFloat(e.target.value) || 0})}
+    else if (row === 'Small Log Trees') {setState({UserSpecWDSLT: parseFloat(e.target.value) || 0})}
+    else {setState({UserSpecWDLLT: parseFloat(e.target.value) || 0})}
   }
 
   //UserSpecRFCT
   const handleRF = (e, {row}) => {
-    if(row === 'Chip Trees'){setState({UserSpecRFCT: parseFloat(e.target.value)})}
-    else if (row === 'Small Log Trees') {setState({UserSpecRFSLT: parseFloat(e.target.value)})}
-    else {setState({UserSpecRFLLT	: parseFloat(e.target.value)})}
+    if(row === 'Chip Trees'){setState({UserSpecRFCT: parseFloat(e.target.value) || 0})}
+    else if (row === 'Small Log Trees') {setState({UserSpecRFSLT: parseFloat(e.target.value) || 0})}
+    else {setState({UserSpecRFLLT	: parseFloat(e.target.value) || 0})}
   }
 
   ///handleHF
   const handleHF = (e, {row}) => {
-    if(row === 'Chip Trees'){setState({UserSpecHFCT: parseFloat(e.target.value)})}
-    else if (row === 'Small Log Trees') {setState({UserSpecHFSLT: parseFloat(e.target.value)})}
-    else {setState({UserSpecHFLLT	: parseFloat(e.target.value)})}
+    if(row === 'Chip Trees'){setState({UserSpecHFCT: parseFloat(e.target.value) || 0})}
+    else if (row === 'Small Log Trees') {setState({UserSpecHFSLT: parseFloat(e.target.value) || 0})}
+    else {setState({UserSpecHFLLT	: parseFloat(e.target.value) || 0})}
   }
 
   const handleCTValue = ({row}) => {
@@ -129,7 +129,7 @@ function InputTable({state, setState}) {
                   id='filled-basic' variant='filled' size='small' type="number"
                   InputProps={{inputProps: {style: { textAlign: "center", fontSize: '16px' }}}} 
                   style={{width: '100%'}}
-                  value={handleCTValue({row})}
+                  value={handleCTValue({row}).toString()}
                   onChange = {(e) => {handleRemovalsCT(e, {row})}}
                 />
               </StyledTableCell>
@@ -138,7 +138,7 @@ function InputTable({state, setState}) {
                   id='filled-basic' variant='filled' size='small' type="number"
                   InputProps={{inputProps: {style: { textAlign: "center", fontSize: '16px' }}}} 
                   style={{width: '100%'}}
-                  value={handleVolValue({row})}
+                  value={handleVolValue({row}).toString()}
                   onChange = {(e) => {handleTreeVolCT(e, {row})}}
                 />
               </StyledTableCell >
@@ -147,7 +147,7 @@ function InputTable({state, setState}) {
                   id='filled-basic' variant='filled' size='small' type="number"
                   InputProps={{inputProps: {style: { textAlign: "center", fontSize: '16px' }}}} 
                   style={{width: '100%'}}
-                  value={handleWDValue({row})}
+                  value={handleWDValue({row}).toString()}
                   onChange = {(e) => {handleWD(e, {row})}}
                 />
               </StyledTableCell>
@@ -156,7 +156,7 @@ function InputTable({state, setState}) {
                   id='filled-basic' variant='filled' size='small' type="number"
                   InputProps={{inputProps: {style: { textAlign: "center", fontSize: '16px' }}}} 
                   style={{width: '100%'}}
-                  value={handleRFValue({row})}
+                  value={handleRFValue({row}).toString()}
                   onChange = {(e) => {handleRF(e, {row})}}
                 />
               </StyledTableCell>
@@ -165,7 +165,7 @@ function InputTable({state, setState}) {
                   id='filled-basic' variant='filled' size='small' type="number"
                   InputProps={{inputProps: {style: { textAlign: "center", fontSize: '16px' }}}} 
                   style={{width: '100%'}}
-                  value={handleHFValue({row})}
+                  value={handleHFValue({row}).toString()}
                   onChange = {(e) => {handleHF(e, {row})}}
                 />
               </StyledTableCell>
