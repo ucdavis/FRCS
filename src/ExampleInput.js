@@ -33,6 +33,6 @@ const ExampleInput = {
   ppiCurrent: 284.7, // Oct 2021
   residueRecovFracWT: 80, // FRCS default 80%
   residueRecovFracCTL: 50, // FRCS default 50%
-}
+};
 
 export default ExampleInput;
