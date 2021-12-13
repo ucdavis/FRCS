@@ -179,21 +179,26 @@ function Page() {
                 </Select>
               </FormControl>
               {/* <StateSelect /> */}
-
               <FormControl sx={{ m: 1 }} fullWidth>
                 <InputLabel
                   id="includeLoadingCosts"
                   className="label"
-                  style={{ fontSize: "17px", fontWeight: "600" }}
+                  style={{ fontSize: "17px", fontWeight: "600"}}
                 >
                   {" "}
                   Include loading cost?{" "}
                 </InputLabel>
                 <Select
-                  // labelId='includeLoadingCosts'
+                  labelId='includeLoadingCosts'
                   id="includeLoadingCosts"
-                  label="includeLoadingCosts"
+                  label={
+                    <Box component="div" className="label">
+                      {" "}
+                      Include loading cost?{" "}
+                    </Box>
+                  }
                   className="select"
+                  notchedOutline
                   onChange={(e) =>
                     setState({ includeLoadingCosts: e.target.value })
                   }
@@ -216,8 +221,13 @@ function Page() {
                 <Select
                   // labelId='includeLoadingCosts'
                   id="isBiomassSalvage"
-                  label="isBiomassSalvage"
                   className="select"
+                  label={
+                    <Box component="div" className="label">
+                      {" "}
+                      Is biomass salvage?{" "}
+                    </Box>
+                  }
                   onChange={(e) =>
                     setState({ isBiomassSalvage: e.target.value })
                   }
@@ -238,8 +248,13 @@ function Page() {
                 </InputLabel>
                 <Select
                   id="includeCostsCollectChipResidues"
-                  label="includeCostsCollectChipResidues"
                   className="select"
+                  label={
+                    <Box component="div" className="label">
+                      {" "}
+                      Include the costs of collecting and chipping residues?{" "}
+                    </Box>
+                  }
                   onChange={(e) =>
                     setState({
                       includeCostsCollectChipResidues: e.target.value,
@@ -263,8 +278,13 @@ function Page() {
                 </InputLabel>
                 <Select
                   id="includeMoveInCosts"
-                  label="includeMoveInCosts"
                   className="select"
+                  label={
+                    <Box component="div" className="label">
+                      {" "}
+                      Include move-in costs?{" "}
+                    </Box>
+                  }
                   onChange={(e) =>
                     setState({ includeMoveInCosts: e.target.value })
                   }
@@ -447,7 +467,7 @@ function Page() {
                     style={{ fontSize: "17px", fontWeight: "600" }}
                   >
                     {" "}
-                    One way move in distance{" "}
+                    One way move in distance:{" "}
                   </InputLabel>
                   <FilledInput
                     label="distance"
