@@ -94,23 +94,23 @@ function Results({input, setInput, setFirstTimeOpen}) {
       if(testNoneValue(input)) { setOpenAlart(true) }
       else{
         const output = runFrcs(input);
-        const Total = output.Total;
-        const Residue = output.Residue;
+        const total = output.total;
+        const biomass = output.biomass;
         setState({
-            WeightPerAcreTotal : Total.WeightPerAcre.toFixed(2),
-            WeightPerAcreResidue : Residue.WeightPerAcre.toFixed(2),
-            CostPerAcreTotal: Total.CostPerAcre.toFixed(2),
-            CostPerAcreResidue: Residue.CostPerAcre.toFixed(2),
-            CostPerBoleCCFTotal: Total.CostPerBoleCCF.toFixed(2),
-            CostPerBoleCCFResidue: Residue.CostPerBoleCCF.toFixed(2),
-            CostPerGTTotal: Total.CostPerGT.toFixed(2),
-            CostPerGTResidue: Residue.CostPerGT.toFixed(2),
-            DieselPerAcreTotal: Total.DieselPerAcre.toFixed(2),
-            DieselPerAcreResidue: Residue.DieselPerAcre.toFixed(2),
-            GasolinePerAcreTotal: Total.GasolinePerAcre.toFixed(2),
-            GasolinePerAcreResidue: Residue.GasolinePerAcre.toFixed(2),
-            JetFuelPerAcreTotal: Total.JetFuelPerAcre.toFixed(2),
-            JetFuelPerAcreResidue: Residue.JetFuelPerAcre.toFixed(2)
+            WeightPerAcreTotal : total.yieldPerAcre.toFixed(2),
+            WeightPerAcreResidue : biomass.yieldPerAcre.toFixed(2),
+            CostPerAcreTotal: total.costPerAcre.toFixed(2),
+            CostPerAcreResidue: biomass.costPerAcre.toFixed(2),
+            CostPerBoleCCFTotal: total.costPerBoleCCF.toFixed(2),
+            CostPerBoleCCFResidue: biomass.costPerBoleCCF.toFixed(2),
+            CostPerGTTotal: total.costPerGT.toFixed(2),
+            CostPerGTResidue: biomass.costPerGT.toFixed(2),
+            DieselPerAcreTotal: total.dieselPerAcre.toFixed(2),
+            DieselPerAcreResidue: biomass.dieselPerAcre.toFixed(2),
+            GasolinePerAcreTotal: total.gasolinePerAcre.toFixed(2),
+            GasolinePerAcreResidue: biomass.gasolinePerAcre.toFixed(2),
+            JetFuelPerAcreTotal: total.jetFuelPerAcre.toFixed(2),
+            JetFuelPerAcreResidue: biomass.jetFuelPerAcre.toFixed(2)
         })
       }
     }
