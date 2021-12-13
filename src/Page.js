@@ -100,7 +100,7 @@ function Page() {
 
             
             <FormControl sx={{ m: 1 }} fullWidth >
-              <InputLabel id='includeLoadingCosts' className='label' style={{fontSize: '17px', fontWeight: '600'}}> Include loading cost </InputLabel>
+              <InputLabel id='includeLoadingCosts' className='label' style={{fontSize: '17px', fontWeight: '600'}}> Include loading cost? </InputLabel>
               <Select
                 // labelId='includeLoadingCosts'
                 id='includeLoadingCosts'
@@ -116,7 +116,7 @@ function Page() {
               </Select>
             </FormControl>
             <FormControl sx={{ m: 1 }} fullWidth >
-              <InputLabel id='isBiomassSalvage' className='label' style={{fontSize: '17px', fontWeight: '600'}}> Is biomass salvage </InputLabel>
+              <InputLabel id='isBiomassSalvage' className='label' style={{fontSize: '17px', fontWeight: '600'}}> Is biomass salvage? </InputLabel>
               <Select
                 // labelId='includeLoadingCosts'
                 id='isBiomassSalvage'
@@ -132,7 +132,7 @@ function Page() {
             </FormControl>
             <FormControl sx={{ m: 1 }} fullWidth>
               <InputLabel id='includeCostsCollectChipResidues' className='label' style={{fontSize: '16px', fontWeight: '600'}}> 
-                Include the costs of collecting and chipping residues 
+                Include the costs of collecting and chipping residues? 
               </InputLabel>
               <Select
                 id='includeCostsCollectChipResidues'
@@ -147,7 +147,7 @@ function Page() {
               </Select>
             </FormControl>
             <FormControl sx={{ m: 1 }} fullWidth>
-              <InputLabel id='includeMoveInCosts' className='label' style={{fontSize: '17px', fontWeight: '600'}}> Include move-in costs </InputLabel>
+              <InputLabel id='includeMoveInCosts' className='label' style={{fontSize: '17px', fontWeight: '600'}}> Include move-in costs? </InputLabel>
               <Select
                 id='includeMoveInCosts'
                 label="includeMoveInCosts"
