@@ -1,6 +1,5 @@
-
 .title {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .box {
@@ -52,7 +51,7 @@
 .inputTable {
   height: fit-content;
 }
-.tree-charac{
+.tree-charac {
   margin-left: auto;
   margin-right: auto;
 }
@@ -61,29 +60,29 @@
 /* For chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 /* For firefox  */
-input[type=number]{
+input[type="number"] {
   -moz-appearance: textfield;
-} 
+}
 
-@media only screen and (max-width: 576px){
+@media only screen and (max-width: 576px) {
   .title {
     font-size: 1.5rem;
   }
   .configuration {
     height: fit-content;
-    flex-direction : column;
+    flex-direction: column;
   }
   .configurationLeftmiddle {
     width: 100%;
     display: flex;
-    flex-direction : column;
+    flex-direction: column;
   }
   .configuration-left {
-    width: 90%
+    width: 90%;
   }
   .configuration-middle {
     width: 90%;
@@ -96,19 +95,18 @@ input[type=number]{
     width: 80%;
     flex-direction: column;
   }
-
 }
 
-@media screen and (min-width: 577px) and ( max-width: 977px){
+@media screen and (min-width: 577px) and (max-width: 977px) {
   .configuration {
     height: fit-content;
-    flex-direction : column;
+    flex-direction: column;
     margin-left: 1%;
   }
   .configurationLeftmiddle {
     width: 100%;
     display: flex;
-    flex-direction : row;
+    flex-direction: row;
   }
   .configuration-left {
     width: 45%;
@@ -140,16 +138,16 @@ input[type=number]{
   }
 }
 
-@media only screen and (min-width: 978px) and (max-width: 1100px){
+@media only screen and (min-width: 978px) and (max-width: 1100px) {
   .configuration {
     height: fit-content;
-    flex-direction : row;
+    flex-direction: row;
     margin-left: 1%;
   }
   .configurationLeftmiddle {
     width: 65%;
     display: flex;
-    flex-direction : row;
+    flex-direction: row;
   }
   .configuration-left {
     width: 50%;
@@ -166,7 +164,3 @@ input[type=number]{
     flex-direction: column;
   }
 }
-
-
-
-
