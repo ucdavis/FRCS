@@ -67,19 +67,20 @@ function Page() {
         <div className='configuration'>
           <div className='configurationLeftmiddle'>
           <div className='configuration-left'>
-            <FormControl sx={{ m: 1 }} fullWidth>
-              <InputLabel id='system-type' className='label' style={{fontSize: '14px', fontWeight: '600'}}> System Type </InputLabel>
+          <FormControl sx={{ m: 1 }} fullWidth disabled>
+              <InputLabel id='state' className='label' style={{fontSize: '14px', fontWeight: '600'}} > Region</InputLabel>
               <Select
-                id='system-type'
-                label='system-type'
+                labelId='state'
+                id='state'
+                // label='state'
+                label={<Box component="div" className='label'> Region </Box>}
                 className='select'
-                onChange={(e)=>handleSystemType(e)}
-                value={state.system}
-                defaultValue=""
+                value={'West'}
               >
-                {systemTypes.map((system, id)=> {return <MenuItem value={systemTypes[id]} key={id}  >{systemTypes[id]}</MenuItem>})}
+                <MenuItem value={'West'} style={{fontSize: '14px', fontWeight: '600'}} >West</MenuItem>
               </Select>
             </FormControl>
+            
 
             <FormControl sx={{ m: 1 }} fullWidth >
               <InputLabel id='cut-type' className='label' style={{fontSize: '14px', fontWeight: '600'}}>Cut Type</InputLabel>
@@ -96,42 +97,54 @@ function Page() {
               </Select>
             </FormControl>
             {/* <StateSelect /> */}
-            <FormControl sx={{ m: 1 }} fullWidth >
-              <TextField
-                className='textfield'
-                id='outlined-helperText'
-                label={<Box component="div" className='label'>Yard/Skid/Forward Slope Dist (ft)</Box>}
-                InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
-                onChange={(e)=> handleDeliverDist(e)}
-                value={state.deliverToLandingDistance.toString()}
-                type='number'
-                // defaultValue='400'
-              />
-            </FormControl>
-            <FormControl sx={{ m: 1 }} fullWidth >
-              <TextField
-                className='textfield'
-                id='outlined-helperText'
-                label={<Box component="div" className='label'>Moisture Content (%)</Box>}
-                InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
-                onChange={(e) => {handleMoistureContent(e)}}
-                value={state.moistureContent.toString()}
-                type='number'
-                // defaultValue='50'
-              />
-            </FormControl>
 
+            
             <FormControl sx={{ m: 1 }} fullWidth >
-              <TextField
-                className='textfield'
-                id='outlined-helperText'
-                label={<Box component="div" className='label'> Residue recovery fraction for WT systems (%)</Box>}
-                InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
-                onChange={(e) => {handleresidueRecovFracWT(e)}}
-                value={state.residueRecovFracWT.toString()}
-                type='number'
-                // defaultValue='50'
-              />
+              <InputLabel id='includeLoadingCosts' className='label' style={{fontSize: '17px', fontWeight: '600'}}> Include loading cost </InputLabel>
+              <Select
+                // labelId='includeLoadingCosts'
+                id='includeLoadingCosts'
+                label="includeLoadingCosts"
+                className='select'
+                onChange={(e)=>setState({includeLoadingCosts: e.target.value})}
+                value={state.includeLoadingCosts}
+                defaultValue=""
+              >
+                <MenuItem value={true} > Yes </MenuItem>
+                <MenuItem value={false}  > No </MenuItem>
+
+              </Select>
+            </FormControl>
+            <FormControl sx={{ m: 1 }} fullWidth >
+              <InputLabel id='isBiomassSalvage' className='label' style={{fontSize: '17px', fontWeight: '600'}}> Is biomass salvage </InputLabel>
+              <Select
+                // labelId='includeLoadingCosts'
+                id='isBiomassSalvage'
+                label="isBiomassSalvage"
+                className='select'
+                onChange={(e)=>setState({isBiomassSalvage: e.target.value})}
+                value={state.isBiomassSalvage}
+                defaultValue=""
+              >
+                <MenuItem value={true} > Yes </MenuItem>
+                <MenuItem value={false}  > No </MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl sx={{ m: 1 }} fullWidth>
+              <InputLabel id='includeCostsCollectChipResidues' className='label' style={{fontSize: '16px', fontWeight: '600'}}> 
+                Include the costs of collecting and chipping residues 
+              </InputLabel>
+              <Select
+                id='includeCostsCollectChipResidues'
+                label="includeCostsCollectChipResidues"
+                className='select'
+                onChange={(e)=>setState({includeCostsCollectChipResidues: e.target.value})}
+                value={state.includeCostsCollectChipResidues}
+                defaultValue=""
+              >
+                <MenuItem value={true} > Yes </MenuItem>
+                <MenuItem value={false}  > No </MenuItem>
+              </Select>
             </FormControl>
             <FormControl sx={{ m: 1 }} fullWidth>
               <InputLabel id='includeMoveInCosts' className='label' style={{fontSize: '17px', fontWeight: '600'}}> Include move-in costs </InputLabel>
@@ -168,17 +181,17 @@ function Page() {
 
           </div>
           <div className='configuration-middle'>
-          <FormControl sx={{ m: 1 }} fullWidth disabled>
-              <InputLabel id='state' className='label' style={{fontSize: '14px', fontWeight: '600'}} > Region</InputLabel>
+            <FormControl sx={{ m: 1 }} fullWidth>
+              <InputLabel id='system-type' className='label' style={{fontSize: '14px', fontWeight: '600'}}> System Type </InputLabel>
               <Select
-                labelId='state'
-                id='state'
-                // label='state'
-                label={<Box component="div" className='label'> Region </Box>}
+                id='system-type'
+                label='system-type'
                 className='select'
-                value={'West'}
+                onChange={(e)=>handleSystemType(e)}
+                value={state.system}
+                defaultValue=""
               >
-                <MenuItem value={'West'}>West</MenuItem>
+                {systemTypes.map((system, id)=> {return <MenuItem value={systemTypes[id]} key={id}  >{systemTypes[id]}</MenuItem>})}
               </Select>
             </FormControl>
             <FormControl sx={{ m: 1 }} fullWidth>
@@ -202,42 +215,42 @@ function Page() {
                 type='number'
               />
             </FormControl>
-            <FormControl sx={{ m: 1 }} fullWidth>
+            <FormControl sx={{ m: 1 }} fullWidth >
               <TextField
+                className='textfield'
                 id='outlined-helperText'
-                label={<Box component="div" className='label'> Diesel Fuel Price ($/gal)</Box>}
+                label={<Box component="div" className='label'>Yard/Skid/Forward Slope Distance (ft)</Box>}
                 InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
-                onChange={(e)=>{handleDieselFuelPrice(e)}}
-                value={state.dieselFuelPrice.toString()}
+                onChange={(e)=> handleDeliverDist(e)}
+                value={state.deliverToLandingDistance.toString()}
                 type='number'
+                // defaultValue='400'
               />
             </FormControl>
+            
             <FormControl sx={{ m: 1 }} fullWidth>
               <TextField
                 id='outlined-helperText'
-                label={<Box component="div" className='label'> Residue recovery fraction for CTL system (%)</Box>}
+                label={<Box component="div" className='label'> Residue Recovery Fraction for CTL Systems (%)</Box>}
                 InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
                 onChange={(e)=>{handleresidueRecovFracCTL(e)}}
                 value={state.residueRecovFracCTL.toString()}
                 type='number'
               />
             </FormControl>
-            <FormControl sx={{ m: 1 }} fullWidth>
-              <InputLabel id='includeCostsCollectChipResidues' className='label' style={{fontSize: '16px', fontWeight: '600'}}> 
-                Include the costs of collecting and chipping residues 
-              </InputLabel>
-              <Select
-                id='includeCostsCollectChipResidues'
-                label="includeCostsCollectChipResidues"
-                className='select'
-                onChange={(e)=>setState({includeCostsCollectChipResidues: e.target.value})}
-                value={state.includeCostsCollectChipResidues}
-                defaultValue=""
-              >
-                <MenuItem value={true} > Yes </MenuItem>
-                <MenuItem value={false}  > No </MenuItem>
-              </Select>
+            <FormControl sx={{ m: 1 }} fullWidth >
+              <TextField
+                className='textfield'
+                id='outlined-helperText'
+                label={<Box component="div" className='label'> Residue Recovery Fraction for WT Systems (%)</Box>}
+                InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
+                onChange={(e) => {handleresidueRecovFracWT(e)}}
+                value={state.residueRecovFracWT.toString()}
+                type='number'
+                // defaultValue='50'
+              />
             </FormControl>
+            
             {state.includeMoveInCosts && (
               <FormControl sx={{ m: 1}} fullWidth>
               <InputLabel htmlFor='distance' style={{fontSize: '17px', fontWeight: '600'}}> One way move in distance </InputLabel>
@@ -258,11 +271,21 @@ function Page() {
           </div>
 
           <div className='configuration-right'>
-          <FormControl sx={{ m: 1 }} fullWidth className='right'>
+            <FormControl sx={{ m: 1 }} fullWidth className='right'>
+              <TextField
+                id='outlined-helperText'
+                label={<Box component="div" className='label'> Diesel Fuel Price ($/gal)</Box>}
+                InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
+                onChange={(e)=>{handleDieselFuelPrice(e)}}
+                value={state.dieselFuelPrice.toString()}
+                type='number'
+              />
+            </FormControl>
+            <FormControl sx={{ m: 1 }} fullWidth className='right'>
               <TextField
                 className='textfield'
                 id='outlined-helperText'
-                label={<Box component="div" className='label'> Hourly wage for Fallers ($/hr)</Box>}
+                label={<Box component="div" className='label'> Hourly Wage for Fallers ($/hr)</Box>}
                 InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
                 onChange={(e) => handlewageFaller(e)}
                 value={state.wageFaller.toString()}
@@ -273,7 +296,7 @@ function Page() {
               <TextField
                 className='textfield'
                 id='outlined-helperText'
-                label={<Box component="div" className='label'> Hourly wage for Other Workers ($/hr)</Box>}
+                label={<Box component="div" className='label'> Hourly Wage for Other Workers ($/hr)</Box>}
                 InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
                 onChange={(e) => handlewageOther(e)}
                 value={state.wageOther.toString()}
@@ -284,7 +307,7 @@ function Page() {
               <TextField
                 className='textfield'
                 id='outlined-helperText'
-                label={<Box component="div" className='label'> Percent benefits and overhead for workers (%)</Box>}
+                label={<Box component="div" className='label'> Benefits and Overhead for Workers (%)</Box>}
                 InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
                 onChange={(e) => handlelaborBenefits(e)}
                 value={state.laborBenefits.toString()}
@@ -295,45 +318,27 @@ function Page() {
               <TextField
                 className='textfield'
                 id='outlined-helperText'
-                label={<Box component="div" className='label'> Current Producer Price Index (%)</Box>}
+                label={<Box component="div" className='label'> Current Producer Price Index</Box>}
                 InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
                 onChange={(e) => handleppiCurrent(e)}
                 value={state.ppiCurrent.toString()}
                 type='number'
               />
             </FormControl>
-
+            
             <FormControl sx={{ m: 1 }} fullWidth className='right'>
-              <InputLabel id='includeLoadingCosts' className='label' style={{fontSize: '17px', fontWeight: '600'}}> Include loading cost </InputLabel>
-              <Select
-                // labelId='includeLoadingCosts'
-                id='includeLoadingCosts'
-                label="includeLoadingCosts"
-                className='select'
-                onChange={(e)=>setState({includeLoadingCosts: e.target.value})}
-                value={state.includeLoadingCosts}
-                defaultValue=""
-              >
-                <MenuItem value={true} > Yes </MenuItem>
-                <MenuItem value={false}  > No </MenuItem>
-
-              </Select>
+              <TextField
+                className='textfield'
+                id='outlined-helperText'
+                label={<Box component="div" className='label'>Moisture Content (%)</Box>}
+                InputProps={{inputProps: {style: { textAlign: "center", fontSize: '17px' }}}}
+                onChange={(e) => {handleMoistureContent(e)}}
+                value={state.moistureContent.toString()}
+                type='number'
+                // defaultValue='50'
+              />
             </FormControl>
-            <FormControl sx={{ m: 1 }} fullWidth className='right'>
-              <InputLabel id='isBiomassSalvage' className='label' style={{fontSize: '17px', fontWeight: '600'}}> Is biomass salvage </InputLabel>
-              <Select
-                // labelId='includeLoadingCosts'
-                id='isBiomassSalvage'
-                label="isBiomassSalvage"
-                className='select'
-                onChange={(e)=>setState({isBiomassSalvage: e.target.value})}
-                value={state.isBiomassSalvage}
-                defaultValue=""
-              >
-                <MenuItem value={true} > Yes </MenuItem>
-                <MenuItem value={false}  > No </MenuItem>
-              </Select>
-            </FormControl>
+            
           </div>
       </div>
         <Divider style={{ width: '95%', marginTop: '10px', marginLeft: 'auto', marginRight: 'auto' }}> Tree Charateristics </Divider>

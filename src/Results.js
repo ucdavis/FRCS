@@ -96,7 +96,7 @@ function Results({input, setInput, setFirstTimeOpen}) {
     const calculate = () => {
       if(testNoneValue(input)) { setOpenAlart(true) }
       else{
-        // console.log(input)
+        console.log(input)
         const output = runFrcs(input);
         const total = output.total;
         const biomass = output.biomass;
