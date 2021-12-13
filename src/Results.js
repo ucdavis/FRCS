@@ -72,15 +72,18 @@ function Results({input, setInput, setFirstTimeOpen}) {
     const [openAlart, setOpenAlart] = useState(false);
 
     const testNoneValue = (input) => {
-      if(input.System === '' || input.PartialCut === '' || input.DeliverDist === '' || 
-        input.Slope === '' || input.Elevation === '' ||
-        input.UserSpecWDCT === '' || input.UserSpecWDSLT === '' || input.UserSpecWDLLT === '' || 
-        input.UserSpecRFCT === '' || input.UserSpecRFSLT === '' || input.UserSpecRFLLT === '' || 
-        input.UserSpecHFCT === '' || input.UserSpecHFSLT === '' || input.UserSpecHFLLT === '' || 
-        input.RemovalsCT === '' || input.TreeVolCT === '' || input.RemovalsSLT === '' || 
-        input.TreeVolSLT === '' || input.RemovalsLLT === '' || input.TreeVolLLT === '' || 
-        input.DieselFuelPrice === '' || input.MoistureContent === '') {return true}
-      else {return false}
+      if(input.system === '' || input.isPartialCut === '' || input.deliverToLandingDistance === '' || 
+        input.slope === '' || input.elevation === '' ||
+        input.woodDensityCT === '' || input.woodDensitySLT === '' || input.woodDensityLLT === '' || 
+        input.residueFractionCT === '' || input.residueFractionSLT === '' || input.residueFractionLLT === '' || 
+        input.hardwoodFractionCT === '' || input.hardwoodFractionSLT === '' || input.hardwoodFractionLLT === '' || 
+        input.treesPerAcreCT === '' || input.volumeCT === '' || input.treesPerAcreSLT === '' || 
+        input.volumeSLT === '' || input.treesPerAcreLLT === '' || input.volumeLLT === '' || 
+        input.dieselFuelPrice === '' || input.moistureContent === '' || input.wageFaller === '' || 
+        input.wageOther === '' || input.laborBenefits === '' || input.ppiCurrent === '' || input.residueRecovFracWT === '' ||
+        input.residueRecovFracCTL === ''
+        ) {return true}
+      else { return false }
     }
 
     const handleClose = (event, reason) => {
@@ -93,6 +96,7 @@ function Results({input, setInput, setFirstTimeOpen}) {
     const calculate = () => {
       if(testNoneValue(input)) { setOpenAlart(true) }
       else{
+        // console.log(input)
         const output = runFrcs(input);
         const total = output.total;
         const biomass = output.biomass;

@@ -1,17 +1,15 @@
 
 .title {
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .box {
   height: fit-content;
-  /* background-color: #cfe8fc; */
   border: solid 1px rgb(250, 249, 249);
   border-radius: 3px;
   box-shadow: 0 0 10px;
   margin-left: 0;
   margin-right: 0;
-  /* font-weight: bold; */
 }
 .configuration {
   width: 100%;
@@ -20,9 +18,9 @@
   flex-direction: row;
 }
 .configurationLeftmiddle {
+  width: 70%;
   display: flex;
   flex-direction: row;
-  width: 60%;
 }
 .configuration-left {
   display: flex;
@@ -31,48 +29,27 @@
   margin: 5px 10px;
 }
 .label {
-  font-size: 17px;
+  font-size: 14px;
+  font-weight: 600;
 }
 .configuration-middle {
-  width: 40%;
-  margin: 5px 5px;
-}
-
-.checkList {
   width: 50%;
-  height: 40%;
-  /* height: 10vh; */
-}
-.checkLabel {
-  font-size: 18px;
+  margin: 5px 10px;
 }
 
-.firstLineCheckList {
-  margin-left: 15px;
-  display: flex;
-  flex-direction: column;
+.configuration-right {
+  width: 30%;
+  margin: 5px 10px;
+  padding-right: 10px;
 }
 
-.secondLineCheckList {
-  margin-left: 15px;
-  display: flex;
-  flex-direction: column;
-}
-
-.large {
-  margin-top: 25px;
-
-}
-.small{
-  margin-top: 12px;
-}
 .hide {
   display: flex;
   flex-direction: row;
 }
 
 .inputTable {
-  height: 22%;
+  height: fit-content;
 }
 .tree-charac{
   margin-left: auto;
@@ -87,7 +64,6 @@
   .configuration {
     height: fit-content;
     flex-direction : column;
-    margin-left: 7%;
   }
   .configurationLeftmiddle {
     width: 100%;
@@ -95,27 +71,20 @@
     flex-direction : column;
   }
   .configuration-left {
-    width: 80%
+    width: 90%
   }
   .configuration-middle {
-    width: 80%;
-    
+    width: 90%;
   }
-  .checkList {
-    width: 100%;
-    font-size: small;
-    text-align: left;
+  .configuration-right {
+    width: 90%;
   }
+
   .hide {
     width: 80%;
     flex-direction: column;
   }
-  .small {
-    margin-top: 1px;
-  }
-  .large {
-    margin-top: 1px;
-  }
+
 }
 
 @media screen and (min-width: 577px) and ( max-width: 977px){
@@ -135,21 +104,23 @@
   .configuration-middle {
     width: 45%;
   }
-  .checkList {
+
+  .configuration-right {
     width: 100%;
-  }
-  .firstLineCheckList {
-    margin-left: 15px;
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 0px 10px;
   }
-  
-  .secondLineCheckList {
+
+  .right {
+    flex-basis: 45%;
     margin-left: 15px;
-    display: flex;
-    flex-direction: column;
   }
+
+  /* .right:nth-of-type(even){
+    margin-left: 15px;
+  } */
+
   .hide {
     display: flex;
     flex-direction: row;
@@ -164,7 +135,7 @@
     margin-left: 1%;
   }
   .configurationLeftmiddle {
-    width: 60%;
+    width: 65%;
     display: flex;
     flex-direction : row;
   }
@@ -174,18 +145,10 @@
   .configuration-middle {
     width: 50%;
   }
-  .checkList {
-    width: 40%;
+  .configuration-right {
+    width: 30%;
   }
-  .secondLineCheckList{
-    text-align: left;
-  }
-  .large {
-    margin-top: 25px;
-  }
-  .small{
-    margin-top: 0;
-  }
+
   .hide {
     width: 80%;
     flex-direction: column;

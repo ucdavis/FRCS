@@ -1,7 +1,7 @@
 
 const initialInput = {
     system: '',
-    isPartialCut: false, //- set to True if not select clearCut 
+    isPartialCut: false, 
     deliverToLandingDistance: '',
     slope: '',
     elevation: '',
@@ -19,7 +19,7 @@ const initialInput = {
     hardwoodFractionCT: '',
     hardwoodFractionSLT: '',
     hardwoodFractionLLT: '',
-    treesPerAcreCT: '', //trees per aeca
+    treesPerAcreCT: '', //trees per arce
     treesPerAcreSLT: '',
     treesPerAcreLLT: '',
     volumeCT: '',
@@ -28,12 +28,12 @@ const initialInput = {
     dieselFuelPrice: '',
     moistureContent: '',
     isBiomassSalvage: false,
-    wageFaller = '',
-    wageOther = '',
-    laborBenefits = '',
-    ppiCurrent = '',
-    residueRecovFracWT = '',
-    residueRecovFracCTL = '',
+    wageFaller: '',
+    wageOther: '',
+    laborBenefits: '',
+    ppiCurrent: '',
+    residueRecovFracWT: '',
+    residueRecovFracCTL: '',
 }
 
 export default initialInput;

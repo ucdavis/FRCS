@@ -36,39 +36,45 @@ function ExportData({input , state}){
                 {name: ' '},
             ],
             rows: [
-                ['System Type', input.System],
-                ['Cut Type', input.PartialCut ? 'Partial Cut' : 'Clear Cut'],
-                ['Yard/Skid/Forward Slope Dist (ft)', input.DeliverDist],
-                ['Moisture Content', input.MoistureContent],
-                ['State', 'California'],
-                ['Percent Slope', input.Slope],
-                ['Elevation', input.Elevation],
-                ['Diesel Fuel Price', input.DieselFuelPrice],
-                ['Include Loading cost', input.CalcLoad ? 'Yes' : 'No'],
-                ['Include Chipping All Trees', input.ChipAll ? 'Yes' : 'No'],
-                ['Include the costs of collecting and chipping residues', input.CalcResidues ? 'Yes' : 'No'],
-                ['Include Move-In', input.CalcMoveIn ? 'Yes' : 'No'],
-                ['Area Treated (acres)', input.CalcMoveIn ? input.Area : 'NA'],
-                ['One Way Move In Distance (miles)', input.CalcMoveIn ?  input.MoveInDist: 'NA'],
+                ['System Type', input.system],
+                ['Cut Type', input.isPartialCut ? 'Partial Cut' : 'Clear Cut'],
+                ['Yard/Skid/Forward Slope Dist (ft)', input.deliverToLandingDistance],
+                ['Moisture Content', input.moistureContent],
+                ['Region', 'West'],
+                ['Percent Slope', input.slope],
+                ['Elevation', input.elevation],
+                ['Diesel Fuel Price', input.dieselFuelPrice],
+                ['Include Loading cost', input.includeLoadingCosts ? 'Yes' : 'No'],
+                ['Include Chipping All Trees', input.isBiomassSalvage ? 'Yes' : 'No'],
+                ['Include the costs of collecting and chipping residues', input.includeCostsCollectChipResidues ? 'Yes' : 'No'],
+                ['Include Move-In', input.includeMoveInCosts ? 'Yes' : 'No'],
+                ['Area Treated (acres)', input.includeMoveInCosts ? input.area : 'NA'],
+                ['One Way Move In Distance (miles)', input.includeMoveInCosts ?  input.moveInDistance: 'NA'],
+                ['Hourly wage for Other Workers ($/hr)', input.wageFaller],
+                ['Percent benefits and overhead for workers (%)', input.wageOther],
+                ['Percent benefits and overhead for workers', input.laborBenefits],
+                ['Current Producer Price Index', input.ppiCurrent],
+                ['Residue recovery fraction for WT systems', input.residueRecovFracWT],
+                ['Residue recovery fraction for CTL system', input.residueRecovFracCTL],
                 ],
             });
 
         worksheet.addTable({
             name: 'TreeCharacteristics',
-            ref: 'B19', 
+            ref: 'B25', 
             headerRow: true,
             totalsRow: false,
             columns: [{name: 'Inputs'}, {name: 'Trees/acre'}, {name: 'Vol/tree (ft3)'}, {name: 'Green Wood Density (lbs/cf)'}, {name: 'Residue Fraction'}, {name: 'Hardwood Fraction'}],
             rows: [
-                ['Chip Trees', input.RemovalsCT, input.TreeVolCT, input.UserSpecWDCT, input.UserSpecRFCT, input.UserSpecHFCT],
-                ['Small log trees', input.RemovalsSLT, input.TreeVolSLT, input.UserSpecWDSLT, input.UserSpecRFSLT, input.UserSpecHFSLT],
-                ['Large log trees', input.RemovalsLLT, input.TreeVolLLT, input.UserSpecWDLLT, input.UserSpecRFLLT, input.UserSpecHFLLT],
+                ['Chip Trees', input.treesPerAcreCT, input.volumeCT, input.woodDensityCT, input.residueFractionCT, input.hardwoodFractionCT],
+                ['Small log trees', input.treesPerAcreSLT, input.volumeSLT, input.woodDensitySLT, input.residueFractionSLT, input.hardwoodFractionSLT],
+                ['Large log trees', input.treesPerAcreLLT, input.volumeLLT, input.woodDensityLLT, input.residueFractionLLT, input.hardwoodFractionLLT],
             ],
         });
 
         worksheet.addTable({
             name: 'Results',
-            ref: 'B27',
+            ref: 'B31',
             headerRow: true,
             totalsRow: false,
             columns: [{name: 'Outputs'}, {name: 'Yield (GT/ac)'}, {name: 'Cost ($/ac)'}, {name: 'Cost ($/BoleCCF)'}, {name: 'Cost ($/GT)'}, {name: 'Diesel (gal/ac)'}, {name: 'Gasoline (gal/ac)'}, {name: 'Jet Fuel (gal/ac)'}],
@@ -82,7 +88,7 @@ function ExportData({input , state}){
         // send file to client
         saveAs(
             new Blob([workbookBuffer], { type: 'application/octet-stream' }),
-            `Results.xlsx`
+            `FRCS_Results.xlsx`
         );
     }
     return (

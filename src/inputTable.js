@@ -43,67 +43,67 @@ function InputTable({state, setState}) {
   //ct chip-tree slt - small-log-tree llt-large-log-tree WD-wood-density RF-residue fraction HF - hardwood-fraction
   // RemovalsCT
   const handleRemovalsCT = (e, {row}) => {
-    if(row === 'Chip Trees'){setState({RemovalsCT: parseFloat(e.target.value) || 0 })}
-    else if (row === 'Small Log Trees') {setState({RemovalsSLT: parseFloat(e.target.value) || 0})}
-    else {setState({RemovalsLLT: parseFloat(e.target.value) || 0})}
+    if(row === 'Chip Trees'){setState({treesPerAcreCT: parseFloat(e.target.value) || 0 })}
+    else if (row === 'Small Log Trees') {setState({treesPerAcreSLT: parseFloat(e.target.value) || 0})}
+    else {setState({treesPerAcreLLT: parseFloat(e.target.value) || 0})}
   }
 
   // TreeVolCT
   const handleTreeVolCT = (e, {row}) => {
-    if(row === 'Chip Trees'){setState({TreeVolCT: parseFloat(e.target.value) || 0})}
-    else if (row === 'Small Log Trees') {setState({TreeVolSLT: parseFloat(e.target.value) || 0})}
-    else {setState({TreeVolLLT: parseFloat(e.target.value) || 0})}
+    if(row === 'Chip Trees'){setState({volumeCT: parseFloat(e.target.value) || 0})}
+    else if (row === 'Small Log Trees') {setState({volumeSLT: parseFloat(e.target.value) || 0})}
+    else {setState({volumeLLT: parseFloat(e.target.value) || 0})}
   }
 
   //handleWD
   const handleWD = (e, {row}) => {
-    if(row === 'Chip Trees'){setState({UserSpecWDCT: parseFloat(e.target.value) || 0})}
-    else if (row === 'Small Log Trees') {setState({UserSpecWDSLT: parseFloat(e.target.value) || 0})}
-    else {setState({UserSpecWDLLT: parseFloat(e.target.value) || 0})}
+    if(row === 'Chip Trees'){setState({woodDensityCT: parseFloat(e.target.value) || 0})}
+    else if (row === 'Small Log Trees') {setState({woodDensitySLT: parseFloat(e.target.value) || 0})}
+    else {setState({woodDensityLLT: parseFloat(e.target.value) || 0})}
   }
 
   //UserSpecRFCT
   const handleRF = (e, {row}) => {
-    if(row === 'Chip Trees'){setState({UserSpecRFCT: parseFloat(e.target.value) || 0})}
-    else if (row === 'Small Log Trees') {setState({UserSpecRFSLT: parseFloat(e.target.value) || 0})}
-    else {setState({UserSpecRFLLT	: parseFloat(e.target.value) || 0})}
+    if(row === 'Chip Trees'){setState({residueFractionCT: parseFloat(e.target.value) || 0})}
+    else if (row === 'Small Log Trees') {setState({residueFractionSLT: parseFloat(e.target.value) || 0})}
+    else {setState({residueFractionLLT	: parseFloat(e.target.value) || 0})}
   }
 
   ///handleHF
   const handleHF = (e, {row}) => {
-    if(row === 'Chip Trees'){setState({UserSpecHFCT: parseFloat(e.target.value) || 0})}
-    else if (row === 'Small Log Trees') {setState({UserSpecHFSLT: parseFloat(e.target.value) || 0})}
-    else {setState({UserSpecHFLLT	: parseFloat(e.target.value) || 0})}
+    if(row === 'Chip Trees'){setState({hardwoodFractionCT: parseFloat(e.target.value) || 0})}
+    else if (row === 'Small Log Trees') {setState({hardwoodFractionSLT: parseFloat(e.target.value) || 0})}
+    else {setState({hardwoodFractionLLT	: parseFloat(e.target.value) || 0})}
   }
 
   const handleCTValue = ({row}) => {
-    if(row === 'Chip Trees'){ return state.RemovalsCT }
-    else if (row === 'Small Log Trees') {return state.RemovalsSLT}
-    else { return state.RemovalsLLT }
+    if(row === 'Chip Trees'){ return state.treesPerAcreCT }
+    else if (row === 'Small Log Trees') {return state.treesPerAcreSLT}
+    else { return state.treesPerAcreLLT }
   }
 
   const handleVolValue = ({row}) => {
-    if(row === 'Chip Trees'){ return state.TreeVolCT }
-    else if (row === 'Small Log Trees') {return state.TreeVolSLT}
-    else { return state.TreeVolLLT }
+    if(row === 'Chip Trees'){ return state.volumeCT }
+    else if (row === 'Small Log Trees') {return state.volumeSLT}
+    else { return state.volumeLLT }
   }
 
   const handleWDValue = ({row}) => {
-    if(row === 'Chip Trees'){ return state.UserSpecWDCT }
-    else if (row === 'Small Log Trees') {return state.UserSpecWDSLT}
-    else { return state.UserSpecWDLLT }
+    if(row === 'Chip Trees'){ return state.woodDensityCT }
+    else if (row === 'Small Log Trees') {return state.woodDensitySLT}
+    else { return state.woodDensityLLT }
   }
 
   const handleRFValue = ({row}) => {
-    if(row === 'Chip Trees'){ return state.UserSpecRFCT }
-    else if (row === 'Small Log Trees') {return state.UserSpecRFSLT}
-    else { return state.UserSpecRFLLT }
+    if(row === 'Chip Trees'){ return state.residueFractionCT }
+    else if (row === 'Small Log Trees') {return state.residueFractionSLT}
+    else { return state.residueFractionLLT }
   }
 
   const handleHFValue = ({row}) => {
-    if(row === 'Chip Trees'){ return state.UserSpecHFCT }
-    else if (row === 'Small Log Trees') {return state.UserSpecHFSLT}
-    else { return state.UserSpecHFLLT }
+    if(row === 'Chip Trees'){ return state.hardwoodFractionCT }
+    else if (row === 'Small Log Trees') {return state.hardwoodFractionSLT}
+    else { return state.hardwoodFractionLLT }
   }
 
 
