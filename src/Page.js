@@ -14,7 +14,16 @@ import Divider from "@mui/material/Divider";
 import FilledInput from "@mui/material/FilledInput";
 import InputAdornment from "@mui/material/InputAdornment";
 import initialInput from "./initialInput";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 // import { StylesProvider } from '@mui/styles';
+
+const styledInputAdornment = {
+  padding: "27.5px 14px", 
+  backgroundColor: '#E1E8EB',
+  marginLeft: '0px',
+}
+
+// const 
 
 function Page() {
   const systemTypes = [
@@ -65,16 +74,6 @@ function Page() {
   const handleMoveInDist = (e) => {
     setState({ moveInDistance: parseFloat(e.target.value) || 0 });
   };
-  // const handleCalcLoad = () => { setState({includeLoadingCosts: !state.includeLoadingCosts}) }
-  // const handleCalcMoveIn = () => {
-  //   setState({includeMoveInCosts: !state.includeMoveInCosts});
-  //   if(state.CalcMoveIn === false) {
-  //     setState({moveInDistance: 0});
-  //     setState({area: 0});
-  //   }
-  //  }
-  // const handleCalcResidues = () => { setState({includeCostsCollectChipResidues: !state.includeCostsCollectChipResidues})}
-  // const handleChipAll = () => { setState({isBiomassSalvage: !state.isBiomassSalvage}) }
   const handlewageFaller = (e) => {
     setState({ wageFaller: parseFloat(e.target.value) || 0 });
   };
@@ -169,7 +168,6 @@ function Page() {
                       <MenuItem
                         value={cut}
                         key={id}
-                        style={{ fontSize: "14px", fontWeight: "600" }}
                       >
                         {" "}
                         {cut}{" "}
@@ -198,7 +196,6 @@ function Page() {
                     </Box>
                   }
                   className="select"
-                  notchedOutline
                   onChange={(e) =>
                     setState({ includeLoadingCosts: e.target.value })
                   }
@@ -357,18 +354,24 @@ function Page() {
               </FormControl>
               <FormControl sx={{ m: 1 }} fullWidth>
                 <TextField
+                 sx={{
+                  "& .MuiOutlinedInput-root": {
+                    paddingRight: 0
+                  }
+                }}
                   className="textfield"
                   id="outlined-helperText"
                   label={
                     <Box component="div" className="label">
                       {" "}
-                      Slope (%)
+                      Slope
                     </Box>
                   }
                   InputProps={{
                     inputProps: {
                       style: { textAlign: "center", fontSize: "17px" },
                     },
+                    endAdornment: <InputAdornment position='end'sx={{...styledInputAdornment}}> % </InputAdornment>
                   }}
                   onChange={(e) => handleSlope(e)}
                   value={state.slope.toString()}
@@ -377,17 +380,24 @@ function Page() {
               </FormControl>
               <FormControl sx={{ m: 1 }} fullWidth>
                 <TextField
+                 sx={{
+                  "& .MuiOutlinedInput-root": {
+                    paddingRight: 0
+                  }
+                }}
                   id="outlined-helperText"
                   label={
                     <Box component="div" className="label">
                       {" "}
-                      Elevation (ft)
+                      Elevation
                     </Box>
                   }
                   InputProps={{
                     inputProps: {
                       style: { textAlign: "center", fontSize: "17px" },
                     },
+                    endAdornment: <InputAdornment position='end'sx={{...styledInputAdornment}}> ft </InputAdornment>
+
                   }}
                   onChange={(e) => handleElevation(e)}
                   value={state.elevation.toString()}
@@ -396,17 +406,23 @@ function Page() {
               </FormControl>
               <FormControl sx={{ m: 1 }} fullWidth>
                 <TextField
+                 sx={{
+                  "& .MuiOutlinedInput-root": {
+                    paddingRight: 0
+                  }
+                }}
                   className="textfield"
                   id="outlined-helperText"
                   label={
                     <Box component="div" className="label">
-                      Yard/Skid/Forward Slope Distance (ft)
+                      Yard/Skid/Forward Slope Distance 
                     </Box>
                   }
                   InputProps={{
                     inputProps: {
                       style: { textAlign: "center", fontSize: "17px" },
                     },
+                    endAdornment: <InputAdornment position='end'sx={{...styledInputAdornment}}> ft </InputAdornment>
                   }}
                   onChange={(e) => handleDeliverDist(e)}
                   value={state.deliverToLandingDistance.toString()}
@@ -417,17 +433,23 @@ function Page() {
 
               <FormControl sx={{ m: 1 }} fullWidth>
                 <TextField
+                   sx={{
+                    "& .MuiOutlinedInput-root": {
+                      paddingRight: 0
+                    }
+                  }}
                   id="outlined-helperText"
                   label={
                     <Box component="div" className="label">
                       {" "}
-                      Residue Recovery Fraction for CTL Systems (%)
+                      Residue Recovery Fraction for CTL Systems
                     </Box>
                   }
                   InputProps={{
                     inputProps: {
                       style: { textAlign: "center", fontSize: "17px" },
                     },
+                    endAdornment: <InputAdornment position='end'sx={{...styledInputAdornment}}> % </InputAdornment>
                   }}
                   onChange={(e) => {
                     handleresidueRecovFracCTL(e);
@@ -438,18 +460,24 @@ function Page() {
               </FormControl>
               <FormControl sx={{ m: 1 }} fullWidth>
                 <TextField
+                  sx={{
+                    "& .MuiOutlinedInput-root": {
+                      paddingRight: 0
+                    }
+                  }}
                   className="textfield"
                   id="outlined-helperText"
                   label={
                     <Box component="div" className="label">
                       {" "}
-                      Residue Recovery Fraction for WT Systems (%)
+                      Residue Recovery Fraction for WT Systems 
                     </Box>
                   }
                   InputProps={{
                     inputProps: {
                       style: { textAlign: "center", fontSize: "17px" },
                     },
+                    endAdornment: <InputAdornment position='end'sx={{...styledInputAdornment}}> % </InputAdornment>
                   }}
                   onChange={(e) => {
                     handleresidueRecovFracWT(e);
@@ -498,17 +526,23 @@ function Page() {
           <div className="configuration-right">
             <FormControl sx={{ m: 1 }} fullWidth className="right">
               <TextField
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    paddingRight: 0
+                  }
+                }}
                 id="outlined-helperText"
                 label={
                   <Box component="div" className="label">
                     {" "}
-                    Diesel Fuel Price ($/gal)
+                    Diesel Fuel Price
                   </Box>
                 }
                 InputProps={{
                   inputProps: {
                     style: { textAlign: "center", fontSize: "17px" },
                   },
+                  endAdornment: <InputAdornment position='end'sx={{...styledInputAdornment}}> $/gal </InputAdornment>
                 }}
                 onChange={(e) => {
                   handleDieselFuelPrice(e);
@@ -519,18 +553,24 @@ function Page() {
             </FormControl>
             <FormControl sx={{ m: 1 }} fullWidth className="right">
               <TextField
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    paddingRight: 0
+                  }
+                }}
                 className="textfield"
                 id="outlined-helperText"
                 label={
                   <Box component="div" className="label">
                     {" "}
-                    Hourly Wage for Fallers ($/hr)
+                    Hourly Wage for Fallers 
                   </Box>
                 }
                 InputProps={{
                   inputProps: {
                     style: { textAlign: "center", fontSize: "17px" },
                   },
+                  endAdornment: <InputAdornment position='end'sx={{...styledInputAdornment}}> $/hr </InputAdornment>
                 }}
                 onChange={(e) => handlewageFaller(e)}
                 value={state.wageFaller.toString()}
@@ -539,18 +579,24 @@ function Page() {
             </FormControl>
             <FormControl sx={{ m: 1 }} fullWidth className="right">
               <TextField
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    paddingRight: 0
+                  }
+                }}
                 className="textfield"
                 id="outlined-helperText"
                 label={
                   <Box component="div" className="label">
                     {" "}
-                    Hourly Wage for Other Workers ($/hr)
+                    Hourly Wage for Other Workers
                   </Box>
                 }
                 InputProps={{
                   inputProps: {
                     style: { textAlign: "center", fontSize: "17px" },
                   },
+                  endAdornment: <InputAdornment position='end' sx={{...styledInputAdornment}}> $/hr </InputAdornment>
                 }}
                 onChange={(e) => handlewageOther(e)}
                 value={state.wageOther.toString()}
@@ -559,18 +605,24 @@ function Page() {
             </FormControl>
             <FormControl sx={{ m: 1 }} fullWidth className="right">
               <TextField
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    paddingRight: 0
+                  }
+                }}
                 className="textfield"
                 id="outlined-helperText"
                 label={
                   <Box component="div" className="label">
                     {" "}
-                    Benefits and Overhead for Workers (%)
+                    Benefits and Overhead for Workers
                   </Box>
                 }
                 InputProps={{
                   inputProps: {
                     style: { textAlign: "center", fontSize: "17px" },
                   },
+                  endAdornment: <InputAdornment position='end' sx={{...styledInputAdornment}}> % </InputAdornment>
                 }}
                 onChange={(e) => handlelaborBenefits(e)}
                 value={state.laborBenefits.toString()}
@@ -600,17 +652,23 @@ function Page() {
 
             <FormControl sx={{ m: 1 }} fullWidth className="right">
               <TextField
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    paddingRight: 0
+                  }
+                }}
                 className="textfield"
                 id="outlined-helperText"
                 label={
                   <Box component="div" className="label">
-                    Moisture Content (%)
+                    Moisture Content 
                   </Box>
                 }
                 InputProps={{
                   inputProps: {
                     style: { textAlign: "center", fontSize: "17px" },
                   },
+                  endAdornment: <InputAdornment position='end' sx={{...styledInputAdornment}}> % </InputAdornment>
                 }}
                 onChange={(e) => {
                   handleMoistureContent(e);
