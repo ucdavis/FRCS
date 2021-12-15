@@ -102,7 +102,7 @@ function Page() {
 
   return (
     <Container
-      style={{ width: "90vw", paddingLeft: "0px", paddingRight: "0px" }}
+      style={{ width: "90vw", paddingLeft: "0px", paddingRight: "0px"}}
     >
       <h1 className="title">Fuel Reduction Cost Simulator </h1>
       <Box className="box">
