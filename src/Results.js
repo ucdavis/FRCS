@@ -10,7 +10,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { runFrcs } from "@ucdavis/frcs";
+import { getFrcsOutputs } from "@ucdavis/frcs";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -121,9 +121,9 @@ function Results({ input, setInput, setFirstTimeOpen }) {
       setOpenAlart(true);
     } else {
       // console.log(input);
-      const output = runFrcs(input);
+      const output = getFrcsOutputs(input);
       const total = output.total;
-      const biomass = output.biomass;
+      const biomass = output.residual;
       setState({
         WeightPerAcreTotal: total.yieldPerAcre.toFixed(2),
         WeightPerAcreResidue: biomass.yieldPerAcre.toFixed(2),
