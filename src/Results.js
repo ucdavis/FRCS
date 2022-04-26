@@ -122,8 +122,8 @@ function Results({ input, setInput, setFirstTimeOpen }) {
     } else {
       // console.log(input);
       const output = getFrcsOutputs(input);
-      const total = output.total;
-      const biomass = output.residual;
+      const total = output.totalBiomass;
+      const biomass = output.feedstock;
       setState({
         WeightPerAcreTotal: total.yieldPerAcre.toFixed(2),
         WeightPerAcreResidue: biomass.yieldPerAcre.toFixed(2),
@@ -267,7 +267,7 @@ function Results({ input, setInput, setFirstTimeOpen }) {
                 style={{ width: "10%" }}
               >
                 {" "}
-                Total{" "}
+                Total Biomass{" "}
               </StyledTableCell>
               <StyledTableCell align="right">
                 {state.WeightPerAcreTotal}
@@ -304,7 +304,7 @@ function Results({ input, setInput, setFirstTimeOpen }) {
                 style={{ width: "10%" }}
               >
                 {" "}
-                Residual Woody Biomass{" "}
+                Feedstock{" "}
               </StyledTableCell>
               <StyledTableCell align="right">
                 {" "}

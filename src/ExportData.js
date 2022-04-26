@@ -125,7 +125,7 @@ function ExportData({ input, state }) {
       ],
       rows: [
         [
-          "Total",
+          "Total Biomass",
           state.WeightPerAcreTotal,
           state.CostPerAcreTotal,
           state.CostPerBoleCCFTotal,
@@ -135,7 +135,7 @@ function ExportData({ input, state }) {
           state.JetFuelPerAcreTotal,
         ],
         [
-          "Residual Woody Biomass",
+          "Feedstock",
           state.WeightPerAcreResidue,
           state.CostPerAcreResidue,
           state.CostPerBoleCCFResidue,
